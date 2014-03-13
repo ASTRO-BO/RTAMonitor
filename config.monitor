@@ -2,7 +2,7 @@
 # IceMX configuration.
 #
 #Ice.Admin.Endpoints=tcp -h localhost -p 10003
-Ice.Admin.InstanceName=publisher
+Ice.Admin.InstanceName=monitor
 IceMX.Metrics.Debug.GroupBy=id
 IceMX.Metrics.ByParent.GroupBy=parent
 
@@ -14,4 +14,4 @@ Ice.MessageSizeMax=1000000000
 # "RTAMonitor". The following line sets the endpoints for this
 # adapter.
 #
-RTAMonitor.Endpoints=default -p 10000 -h localhost
+RTAMonitor.Endpoints=default -p 20000 -h localhost

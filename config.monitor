@@ -1,0 +1,17 @@
+#
+# IceMX configuration.
+#
+#Ice.Admin.Endpoints=tcp -h localhost -p 10003
+Ice.Admin.InstanceName=publisher
+IceMX.Metrics.Debug.GroupBy=id
+IceMX.Metrics.ByParent.GroupBy=parent
+
+### SERVER
+Ice.MessageSizeMax=1000000000
+
+#
+# The server creates one single object adapter with the name
+# "RTAMonitor". The following line sets the endpoints for this
+# adapter.
+#
+RTAMonitor.Endpoints=default -p 10000 -h localhost

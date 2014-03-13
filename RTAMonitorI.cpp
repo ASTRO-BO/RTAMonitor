@@ -20,12 +20,12 @@ using namespace CTA;
 
 void RTAMonitorI::sendParameter(const Parameter& param, const Ice::Current& cur)
 {
-	parameters[param.apid] = param;
+	_parameters[param.apid].push_back(param);
 	std::cout << param.apid << " " << param.timestamp << " " << param.type << " " << param.value << std::endl;
 }
 
 void RTAMonitorI::sendLog(const LogMessage& msg, const Ice::Current& cur)
 {
-	logs[msg.apid] = msg;
+	_logs[msg.apid].push_back(msg);
 	std::cout << msg.apid << " " << msg.timestamp << " " << msg.value << std::endl;
 }

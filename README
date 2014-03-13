@@ -1,9 +1,9 @@
-This RTAEBSim application loads a packet from file and send it to the RTAReceiver using the Ice RTAReceiver interface.
+This RTAMonitor it's a simple text based server that prints to output the parameters and logs received from clients.
 
 To build just execute:
 
   $ make
 
-To run you need to provide the telemetry description and the raw file.
+To run you need to type:
 
-  $ ./RTAEBSim file.stream file.raw
+  $ ./RTAMonitor

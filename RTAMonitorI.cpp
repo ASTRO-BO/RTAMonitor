@@ -15,13 +15,17 @@
 
 #include "RTAMonitorI.h"
 #include <iostream>
+#include <iomanip>
 
 using namespace CTA;
 
 void RTAMonitorI::sendParameter(const Parameter& param, const Ice::Current& cur)
 {
 	_parameters[param.apid].push_back(param);
-	std::cout << param.apid << " " << param.timestamp << " " << param.type << " " << param.value << std::endl;
+	if(param.type == 0) // rate
+	{
+		std::cout << "apid: " << param.apid << " time: " << std::setprecision(6) << param.timestamp << " rate: " << param.value << " MB/s" << std::endl;
+	}
 }
 
 void RTAMonitorI::sendLog(const LogMessage& msg, const Ice::Current& cur)

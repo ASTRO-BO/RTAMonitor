@@ -1,5 +1,5 @@
 /***************************************************************************
-    begin                : Mar 13 2014
+    begin                : Mar 25 2014
     copyright            : (C) 2014 Andrea Zoli
     email                : zoli@iasfbo.inaf.it
  ***************************************************************************/
@@ -18,28 +18,9 @@
 module CTA
 {
 
-struct Parameter
+interface RTACommand
 {
-	int apid;
-	double timestamp;
-
-	int type;
-	double value;
-};
-
-struct LogMessage
-{
-	int apid;
-	double timestamp;
-
-	string value;
-};
-
-interface RTAMonitor
-{
-	idempotent void sendParameter(Parameter param);
-	idempotent void sendLog(LogMessage msg);
-	idempotent void registerApp(int apid);
+	idempotent void setSimDelay(double delay);
 };
 
 };

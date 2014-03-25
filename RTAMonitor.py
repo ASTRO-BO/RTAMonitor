@@ -22,7 +22,13 @@ Ice.loadSlice('RTACommand.ice')
 Ice.updateModules()
 import CTA
 
+command = 0
+
 class MonitorI(CTA.RTAMonitor):
+    def __init__(self, ic):
+        CTA.RTAMonitor.__init__(self)
+        self.ic = ic
+
     def sendParameter(self, param, current=None):
         print("Received a Parameter")
         if param.type == 0:
@@ -31,16 +37,25 @@ class MonitorI(CTA.RTAMonitor):
     def sendLog(self, msg, current=None):
         print(msg.apid, msg.timestamp, msg.value)
 
+    def registerApp(self, apid, current=None):
+        if apid == 200:
+            print "RTAEBSim registered."
+            # Get a RTACommand proxy to RTAEBSim
+            command = CTA.RTACommandPrx.checkedCast(self.ic.propertyToProxy('RTAEBSimCommand.Proxy')).ice_oneway()
+
 class Monitor(Ice.Application):
     def run(self, args):
         if len(args) > 1:
             print(self.appName() + ": too many arguments")
             return 1
 
-        adapter = self.communicator().createObjectAdapter("RTAMonitor")
-        adapter.add(MonitorI(), self.communicator().stringToIdentity("monitor"))
+		# Activate RTAMonitor adapter
+        ic = self.communicator()
+        adapter = ic.createObjectAdapter("RTAMonitor")
+        adapter.add(MonitorI(ic), ic.stringToIdentity("monitor"))
         adapter.activate()
-        self.communicator().waitForShutdown()
+
+        ic.waitForShutdown()
         return 0
 
 if __name__ == "__main__":

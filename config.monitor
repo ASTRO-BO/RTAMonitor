@@ -15,3 +15,5 @@ Ice.MessageSizeMax=1000000000
 # adapter.
 #
 RTAMonitor.Endpoints=default -p 20000 -h localhost
+
+RTAEBSimCommand.Proxy=command:default -p 30000 -h localhost

@@ -30,9 +30,11 @@ class MonitorI(HasTraits, CTA.RTAMonitor):
 
     simDelay = Range(0.0, 2000.0)
     simRate = String("0 MB/s")
+    receiverRate = String("0 MB/s")
 
     traits_view = View(Item(name='simDelay', style='simple'),
                        Item(name='simRate', style='readonly'),
+                       Item(name='receiverRate', style='readonly'),
                        resizable=True,
                        title='RTA Sleep',
                        width=500, height=200)
@@ -48,10 +50,12 @@ class MonitorI(HasTraits, CTA.RTAMonitor):
             self.command.setSimDelay(self.simDelay)
 
     def sendParameter(self, param, current=None):
+#        print "apid:", param.apid, "type:", param.type, "time:", param.timestamp, "rate:", param.value, "MB/s"
         if param.type == 0:
-#            print "apid:", param.apid, "time:", param.timestamp, "rate:", param.value, "MB/s"
             if param.apid == 200:
                 self.simRate = str(param.value)+" MB/s"
+            if param.apid == 201:
+                self.receiverRate = str(param.value)+" MB/s"
 
     def sendLog(self, msg, current=None):
         print(msg.apid, msg.timestamp, msg.value)
@@ -59,7 +63,6 @@ class MonitorI(HasTraits, CTA.RTAMonitor):
     def registerApp(self, apid, current=None):
         if apid == 200:
             print "RTAEBSim registered."
-            # Get a RTACommand proxy to RTAEBSim
             self.command = CTA.RTACommandPrx.checkedCast(self.ic.propertyToProxy('RTAEBSimCommand.Proxy')).ice_oneway()
 
 class Monitor(Ice.Application):

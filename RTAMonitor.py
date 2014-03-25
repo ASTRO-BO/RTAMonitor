@@ -26,9 +26,7 @@ from traits.api \
     import HasTraits, Range, Float, String, on_trait_change, Property
 from traitsui.api import View, Item
 
-command = 0
-
-class Gui(HasTraits):
+class MonitorI(HasTraits, CTA.RTAMonitor):
 
     simDelay = Range(0.0, 2000.0)
     simRate = String("0 MB/s")
@@ -39,25 +37,21 @@ class Gui(HasTraits):
                        title='RTA Sleep',
                        width=500, height=200)
 
-    def __init__(self):
+    def __init__(self, ic):
         HasTraits.__init__(self)
-
-    def _simDelay_changed(self):
-        print("c")
-
-
-class MonitorI(CTA.RTAMonitor):
-    def __init__(self, ic, gui):
         CTA.RTAMonitor.__init__(self)
         self.ic = ic
-        self.gui = gui
+        self.command = 0
+
+    def _simDelay_changed(self):
+        if self.command != 0:
+            self.command.setSimDelay(self.simDelay)
 
     def sendParameter(self, param, current=None):
-        print("Received a Parameter")
         if param.type == 0:
 #            print "apid:", param.apid, "time:", param.timestamp, "rate:", param.value, "MB/s"
             if param.apid == 200:
-                self.gui.simRate = str(param.value)+" MB/s"
+                self.simRate = str(param.value)+" MB/s"
 
     def sendLog(self, msg, current=None):
         print(msg.apid, msg.timestamp, msg.value)
@@ -66,7 +60,7 @@ class MonitorI(CTA.RTAMonitor):
         if apid == 200:
             print "RTAEBSim registered."
             # Get a RTACommand proxy to RTAEBSim
-            command = CTA.RTACommandPrx.checkedCast(self.ic.propertyToProxy('RTAEBSimCommand.Proxy')).ice_oneway()
+            self.command = CTA.RTACommandPrx.checkedCast(self.ic.propertyToProxy('RTAEBSimCommand.Proxy')).ice_oneway()
 
 class Monitor(Ice.Application):
     def run(self, args):
@@ -74,15 +68,14 @@ class Monitor(Ice.Application):
             print(self.appName() + ": too many arguments")
             return 1
 
-        gui = Gui()
-
 		# Activate RTAMonitor adapter
         ic = self.communicator()
         adapter = ic.createObjectAdapter("RTAMonitor")
-        adapter.add(MonitorI(ic, gui), ic.stringToIdentity("monitor"))
+        servant = MonitorI(ic)
+        adapter.add(servant, ic.stringToIdentity("monitor"))
         adapter.activate()
 
-        gui.configure_traits()
+        servant.configure_traits()
         return 0
 
 if __name__ == "__main__":

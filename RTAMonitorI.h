@@ -30,6 +30,8 @@ public:
 	virtual void sendParameter(const CTA::Parameter& param, const Ice::Current& cur);
 	virtual void sendLog(const CTA::LogMessage& msg, const Ice::Current& cur);
 
+	virtual void registerApp(int apid, const Ice::Current& cur);
+
 private:
 
 	std::map<int, std::vector<CTA::Parameter> >& _parameters;

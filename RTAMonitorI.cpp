@@ -33,3 +33,8 @@ void RTAMonitorI::sendLog(const LogMessage& msg, const Ice::Current& cur)
 	_logs[msg.apid].push_back(msg);
 	std::cout << msg.apid << " " << msg.timestamp << " " << msg.value << std::endl;
 }
+
+void RTAMonitorI::registerApp(int apid, const Ice::Current& cur)
+{
+	std::cout << "Registered APID " << apid << std::endl;
+}

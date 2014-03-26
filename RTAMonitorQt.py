@@ -57,7 +57,7 @@ class MonitorI(CTA.RTAMonitor, Ui_Monitor):
         QtCore.QObject.connect(self.lineEdit, QtCore.SIGNAL("textEdited(const QString&)"), self.updateSlider)
 
         self.horizontalSlider.setMinimum(0)
-        self.horizontalSlider.setMaximum(1000)
+        self.horizontalSlider.setMaximum(3000)
 
     def updateSlider(self, val):
         self.horizontalSlider.setValue(int(val))

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>778</width>
-    <height>300</height>
+    <width>539</width>
+    <height>256</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -22,12 +22,12 @@
   <property name="delay" stdset="0">
    <double>0.000000000000000</double>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>61</x>
-     <y>4</y>
-     <width>641</width>
+     <x>10</x>
+     <y>0</y>
+     <width>521</width>
      <height>81</height>
     </rect>
    </property>
@@ -80,6 +80,12 @@
       <property name="autoFillBackground">
        <bool>false</bool>
       </property>
+      <property name="maximum">
+       <number>3000</number>
+      </property>
+      <property name="pageStep">
+       <number>100</number>
+      </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -115,12 +121,12 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>100</y>
-     <width>662</width>
+     <x>10</x>
+     <y>80</y>
+     <width>521</width>
      <height>166</height>
     </rect>
    </property>
@@ -138,11 +144,11 @@
         <property name="font">
          <font>
           <family>DejaVu Sans</family>
-          <pointsize>36</pointsize>
+          <pointsize>27</pointsize>
          </font>
         </property>
         <property name="text">
-         <string>Sim rate</string>
+         <string>EBSim rate</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -169,7 +175,7 @@
         <property name="font">
          <font>
           <family>DejaVu Sans</family>
-          <pointsize>26</pointsize>
+          <pointsize>43</pointsize>
          </font>
         </property>
         <property name="text">
@@ -223,11 +229,11 @@
         <property name="font">
          <font>
           <family>DejaVu Sans</family>
-          <pointsize>36</pointsize>
+          <pointsize>27</pointsize>
          </font>
         </property>
         <property name="text">
-         <string>Receiver rate</string>
+         <string>RTA rate</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -254,7 +260,7 @@
         <property name="font">
          <font>
           <family>DejaVu Sans</family>
-          <pointsize>26</pointsize>
+          <pointsize>43</pointsize>
          </font>
         </property>
         <property name="text">

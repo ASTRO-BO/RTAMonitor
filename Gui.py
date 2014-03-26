@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '/home/zoli/Desktop/monitorQt.ui'
 #
-# Created: Wed Mar 26 14:06:15 2014
+# Created: Wed Mar 26 15:12:55 2014
 #      by: PyQt4 UI code generator 4.6.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,8 +12,9 @@ from PyQt4 import QtCore, QtGui
 class Ui_Monitor(object):
     def setupUi(self, Monitor):
         Monitor.setObjectName("Monitor")
-        Monitor.resize(754, 275)
+        Monitor.resize(778, 300)
         Monitor.setMaximumSize(QtCore.QSize(800, 300))
+        Monitor.setProperty("delay", 0.0)
         self.widget = QtGui.QWidget(Monitor)
         self.widget.setGeometry(QtCore.QRect(61, 4, 641, 81))
         self.widget.setObjectName("widget")
@@ -42,20 +43,25 @@ class Ui_Monitor(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.horizontalSlider.sizePolicy().hasHeightForWidth())
         self.horizontalSlider.setSizePolicy(sizePolicy)
+        self.horizontalSlider.setAutoFillBackground(False)
         self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
+        self.horizontalSlider.setTickPosition(QtGui.QSlider.NoTicks)
+        self.horizontalSlider.setTickInterval(1)
         self.horizontalSlider.setObjectName("horizontalSlider")
         self.horizontalLayout.addWidget(self.horizontalSlider)
         self.lineEdit = QtGui.QLineEdit(self.widget)
+        self.lineEdit.setEnabled(True)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Maximum, QtGui.QSizePolicy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.lineEdit.sizePolicy().hasHeightForWidth())
         self.lineEdit.setSizePolicy(sizePolicy)
         self.lineEdit.setMaximumSize(QtCore.QSize(40, 30))
+        self.lineEdit.setReadOnly(False)
         self.lineEdit.setObjectName("lineEdit")
         self.horizontalLayout.addWidget(self.lineEdit)
         self.widget1 = QtGui.QWidget(Monitor)
-        self.widget1.setGeometry(QtCore.QRect(50, 100, 662, 136))
+        self.widget1.setGeometry(QtCore.QRect(50, 100, 662, 166))
         self.widget1.setObjectName("widget1")
         self.verticalLayout = QtGui.QVBoxLayout(self.widget1)
         self.verticalLayout.setObjectName("verticalLayout")
@@ -65,7 +71,7 @@ class Ui_Monitor(object):
         self.label_4.setMinimumSize(QtCore.QSize(70, 0))
         font = QtGui.QFont()
         font.setFamily("DejaVu Sans")
-        font.setPointSize(26)
+        font.setPointSize(36)
         self.label_4.setFont(font)
         self.label_4.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_4.setMargin(10)
@@ -103,7 +109,7 @@ class Ui_Monitor(object):
         self.label_8.setMinimumSize(QtCore.QSize(70, 0))
         font = QtGui.QFont()
         font.setFamily("DejaVu Sans")
-        font.setPointSize(26)
+        font.setPointSize(36)
         self.label_8.setFont(font)
         self.label_8.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_8.setMargin(10)
@@ -138,6 +144,7 @@ class Ui_Monitor(object):
 
         self.retranslateUi(Monitor)
         QtCore.QMetaObject.connectSlotsByName(Monitor)
+        Monitor.setTabOrder(self.horizontalSlider, self.lineEdit)
 
     def retranslateUi(self, Monitor):
         Monitor.setWindowTitle(QtGui.QApplication.translate("Monitor", "RTA Monitor", None, QtGui.QApplication.UnicodeUTF8))

@@ -36,13 +36,20 @@ class MonitorI(CTA.RTAMonitor, Ui_Monitor):
         self.command = 0
 
     def sendParameter(self, param, current=None):
-#        print "apid:", param.apid, "type:", param.type, "time:", param.timestamp, "rate:", param.value, "MB/s"
+        print "apid:", param.apid, "type:", param.type, "time:", param.timestamp, "rate:", param.value, "MB/s"
         if param.type == 0:
             if param.apid == 200:
                 self.label_6.setText(str(int(param.value)))
             if param.apid == 201:
                 self.label_9.setText(str(int(param.value)))
-
+	
+        elif param.type == 1:
+            if param.apid == 200:
+                self.label_14.setText(str(int(param.value)))
+        elif param.type == 2:
+	        if param.apid == 200:
+		        self.label_15.setText(str(int(param.value)))
+		
     def sendLog(self, msg, current=None):
         print(msg.apid, msg.timestamp, msg.value)
 

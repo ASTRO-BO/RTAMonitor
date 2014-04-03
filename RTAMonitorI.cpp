@@ -26,6 +26,15 @@ void RTAMonitorI::sendParameter(const Parameter& param, const Ice::Current& cur)
 	{
 		std::cout << "apid: " << param.apid << " time: " << std::setprecision(6) << param.timestamp << " rate: " << param.value << " MB/s" << std::endl;
 	}
+	if(param.type == 1) // camera/s
+	{
+		std::cout << "apid: " << param.apid << " time: " << std::setprecision(6) << param.timestamp << " rate: " << param.value << " camera/s" << std::endl;
+	}
+	if(param.type == 2) // event/s
+	{
+		std::cout << "apid: " << param.apid << " time: " << std::setprecision(6) << param.timestamp << " rate: " << param.value << " event/s" << std::endl;
+	}
+
 }
 
 void RTAMonitorI::sendLog(const LogMessage& msg, const Ice::Current& cur)

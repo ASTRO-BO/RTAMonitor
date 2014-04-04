@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'Gui.ui'
 #
-# Created: Thu Apr  3 10:43:56 2014
+# Created: Fri Apr  4 12:56:08 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,11 +26,11 @@ except AttributeError:
 class Ui_Monitor(object):
     def setupUi(self, Monitor):
         Monitor.setObjectName(_fromUtf8("Monitor"))
-        Monitor.resize(538, 360)
+        Monitor.resize(411, 319)
         Monitor.setMaximumSize(QtCore.QSize(800, 400))
         Monitor.setProperty("delay", 0.0)
         self.layoutWidget = QtGui.QWidget(Monitor)
-        self.layoutWidget.setGeometry(QtCore.QRect(10, 0, 521, 61))
+        self.layoutWidget.setGeometry(QtCore.QRect(10, 0, 391, 61))
         self.layoutWidget.setObjectName(_fromUtf8("layoutWidget"))
         self.horizontalLayout = QtGui.QHBoxLayout(self.layoutWidget)
         self.horizontalLayout.setSpacing(30)
@@ -44,8 +44,10 @@ class Ui_Monitor(object):
         sizePolicy.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
         self.label_5.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("DejaVu Sans"))
-        font.setPointSize(26)
+        font.setFamily(_fromUtf8("Helvetica"))
+        font.setPointSize(24)
+        font.setBold(False)
+        font.setWeight(50)
         self.label_5.setFont(font)
         self.label_5.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_5.setMargin(10)
@@ -77,9 +79,10 @@ class Ui_Monitor(object):
         self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
         self.horizontalLayout.addWidget(self.lineEdit)
         self.gridLayoutWidget = QtGui.QWidget(Monitor)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 60, 391, 284))
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 60, 391, 264))
         self.gridLayoutWidget.setObjectName(_fromUtf8("gridLayoutWidget"))
         self.gridLayout = QtGui.QGridLayout(self.gridLayoutWidget)
+        self.gridLayout.setSizeConstraint(QtGui.QLayout.SetDefaultConstraint)
         self.gridLayout.setMargin(0)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.label = QtGui.QLabel(self.gridLayoutWidget)

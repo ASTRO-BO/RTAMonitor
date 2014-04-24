@@ -1,0 +1,23 @@
+2014-04-24 Andrea Zoli<zoli@iasfbo.inaf.it>, Andrea Bulgarelli <bulgarelli@iasfbo.inaf.it>
+TAG v1.0.0
+* -lIce to -lZerocIce fixed
+* changes on Gui.ui
+* RTAMonitorQt: added camera/s and event/s
+* Added *.o to the .gitignore.
+* Changed sligtly the Gui for RTAMonitorQt.
+* Gui changes
+* Range 0-3000 usecs for RTAMonitorQt slider.
+* Added Qt4 Designer .ui file (related to RTAMonitorQt).
+* RTAMonitorQt extend Ui_Monitor and implements RTAMonitor behaviour.
+* Add RTAMonitorQt.py stub.
+* Add registerApp to RTAMonitorI.
+* RTAMonitor.py: Added RTAReceiver rate.
+* RTAMonitor.py sends new delay to RTAEBSim.
+* RTAMonitor.py Visualize EBSim rate.
+* Add Command interface to RTAMonitor.py.
+* Add RTAMonitor.py.
+* Parameter type 0 stands for rate (MB/s).
+* Update README.
+* Change config.monitor port to 20000.
+* Fix _parameters and _logs names.
+* Initial commit.

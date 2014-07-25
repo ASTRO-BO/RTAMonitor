@@ -1,9 +1,10 @@
 This RTAMonitor it's a simple text based server that prints to output the parameters and logs received from clients.
 
-To build just execute:
+To build/install just run:
 
   $ make
+  $ make install
 
 To run you need to type:
 
-  $ ./RTAMonitor
+  $ ./RTAMonitorQt --Ice.Config=config.monitor

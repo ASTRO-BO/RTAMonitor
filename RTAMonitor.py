@@ -17,8 +17,11 @@
 
 import sys, traceback, time, Ice
 
-Ice.loadSlice('RTAMonitor.ice')
-Ice.loadSlice('RTACommand.ice')
+confdir=os.environ["CTARTA"]+"/share/monitor/"
+
+Ice.loadSlice(confdir+"RTAMonitor.ice")
+Ice.loadSlice(confdir+"RTACommand.ice")
+
 Ice.updateModules()
 import CTA
 
@@ -83,4 +86,4 @@ class Monitor(Ice.Application):
 
 if __name__ == "__main__":
     monitor = Monitor()
-    sys.exit(monitor.main(sys.argv, "config.monitor"))
+    sys.exit(monitor.main(sys.argv))

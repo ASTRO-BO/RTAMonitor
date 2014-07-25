@@ -33,7 +33,7 @@ private:
 int main(int argc, char* argv[])
 {
     RTAMonitorServer app;
-    return app.main(argc, argv, "config.monitor");
+    return app.main(argc, argv);
 }
 
 int RTAMonitorServer::run(int argc, char* argv[])

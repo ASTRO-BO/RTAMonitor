@@ -40,7 +40,8 @@ SLICE_SRCS	= RTAMonitor.ice
 
 include $(top_srcdir)/config/Make.rules
 
-CPPFLAGS	:= -I. $(CPPFLAGS)
+CPPFLAGS ?= -O2
+CPPFLAGS += -I.
 
 $(CLIENT): $(OBJS) $(COBJS)
 	rm -f $@

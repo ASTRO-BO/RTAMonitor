@@ -1,3 +1,9 @@
+2014-12-12 Andrea Zoli <zoli@iasfbo.inaf.it>
+TAG v1.0.2
+* Use the right IceUtil naming for Darwin.
+* Fix Make.rules.Linux to handle clang++.
+* Use conditional assignment for CPPFLAGS in Makefile.
+
 2014-07-25 Andrea Zoli <zoli@iasfbo.inaf.it>
 TAG v1.0.1
 * Add make install.
